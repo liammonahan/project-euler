@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+from functools import reduce
+
 nums = '''
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 49 49 99 40 17 81 18 57 60 87 17 40 98 43 69 48 04 56 62 00
@@ -22,7 +24,8 @@ nums = '''
 20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 '''
-       
+
+
 def get_horizontal(pos):
     coords = []
     if hits_right_wall(pos):
@@ -36,7 +39,7 @@ def get_right_diagonal(pos):
     coords = []
     if hits_right_wall(pos) or hits_bottom_wall(pos):
         return coords
-    
+
     for x in range(4):
         coords.append(grid[pos + (x * (width + 1))])
     return coords
@@ -46,7 +49,7 @@ def get_left_diagonal(pos):
     coords = []
     if hits_left_wall(pos) or hits_bottom_wall(pos):
         return coords
-    
+
     for x in range(4):
         coords.append(grid[pos + (x * (width - 1))])
     return coords
@@ -60,14 +63,18 @@ def get_vertical(pos):
         coords.append(grid[pos + (x * (width))])
     return coords
 
+
 def hits_right_wall(pos):
     return (pos % width) + combo_length > width
+
 
 def hits_left_wall(pos):
     return (pos % width) - combo_length < -1
 
+
 def hits_bottom_wall(pos):
-    return (pos + ((combo_length  - 1) * width)) >= width * height
+    return (pos + ((combo_length - 1) * width)) >= width * height
+
 
 width = 20
 height = 20
@@ -91,4 +98,4 @@ for z in coords:
         total = reduce(lambda x, y: x * y, z)
         if total > greatest:
             greatest = total
-print greatest
+print(greatest)

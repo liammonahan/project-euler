@@ -10,4 +10,4 @@ while i * i < n:
         n = n / i
     i += 1
 
-print n
+print(n)

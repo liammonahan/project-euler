@@ -7,8 +7,5 @@ for a in range(1, 1000):
         c = a**2 + b**2
         c = c**0.5
         if a + b + c == 1000:
-            print a*b*c
-            print a
-            print b
-            print c
+            print(int(a*b*c))
             sys.exit(0)

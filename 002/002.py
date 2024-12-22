@@ -11,4 +11,4 @@ while t2 < 4000000:
     t1 = t2
     t2 = tmp + t2
 
-print mysum
+print(mysum)
