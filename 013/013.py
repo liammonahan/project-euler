@@ -101,5 +101,5 @@ nums = """
 53503534226472524250874054075591789781264330331690
 """
 
-s = sum(int(line.strip()) for line in nums.split())
+s = sum(int(line.strip()[:11]) for line in nums.split())
 print(str(s)[:10])
