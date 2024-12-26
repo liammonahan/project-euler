@@ -45,12 +45,12 @@ def is_leap_year(year):
 
 # let sunday be the 0th day of the week, monday the 1st, etc..
 start_day = 1  # monday
-start = (1900, 1, 1)
-end = (2000, 12, 31)
+start = (1900, 1)
+end = (2000, 12)
 
 sundays = 0
 while start < end:
-    year, month, day = start
+    year, month = start
 
     # increment to next month
     start_day = (start_day + days_per_month[month]) % 7
@@ -63,11 +63,10 @@ while start < end:
     else:
         month = 1
         year += 1
-    start = (year, month, day)
+    start = (year, month)
 
     # calculate sundays
     if start_day == 0 and year != 1900:
-        print(year, month, day)
         sundays += 1
 
 print(sundays)
