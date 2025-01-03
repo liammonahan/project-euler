@@ -1,7 +1,8 @@
 # https://pballew.blogspot.com/2022/08/repeating-decimal-periods-and-patterns.html
 
-# The length of the repetend is the smallest k such that 10^k == 1 mod n
+# The length of the repetend is the smallest k such that 10^k == 1 (mod n)
 # This is equivalent to finding the order of 10 mod n
+# note this only works for primes
 def repetend_length(n):
     for k in range(1, n):
         if pow(10, k, n) == 1:
